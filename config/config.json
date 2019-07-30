@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "12345678",
-    "database": "hobbies_ex_db",
+    "database": "hobbies_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "12345678",
-    "database": "hobbies_ex_db",
+    "database": "hobbies_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
