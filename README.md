@@ -3,7 +3,7 @@ Skill Exchange A web application where users enter skills that they have and ski
 
 
 ## API Rout
-
+```
 GET   /api/hobbies  -- list all hobbies (id, name)
 GET   /api/learnFrom/:userId   --  (userId) can learn from [list of users and skills]
 GET   /api/teachTo/:userId     --  (userId) can teach [list of users] 
@@ -11,3 +11,4 @@ GET   /api/teachTo/:userId     --  (userId) can teach [list of users]
 POST  /api/users               --  create a new user
 POST  /api/:user/teach         --   Create a skill set for user (:user)
 POST  /api/:user/learn         --   Create a skill set a user (:user) wants to learn
+```
