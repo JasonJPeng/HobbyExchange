@@ -8,10 +8,10 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/learnFrom/:userId", function(req, res) {
+  app.get("/api/users/:userid/skills", function(req, res) {
     db.Learn.findAll({
       where:{
-        user_id: req.params.userId
+        user_id: req.params.userid
       }
     }).then(function(data) {
       var myLearn = data.map(e=>{return e.hobby_id})
@@ -27,11 +27,11 @@ module.exports = function(app) {
       // res.json(data);
     });
   });
-
-  app.get("/api/teachTo/:userId", function(req, res) {
+//  
+  app.get("/api/users/:userid/teachto", function(req, res) {
     db.Teach.findAll({
       where:{
-        user_id: req.params.userId
+        user_id: req.params.userid
       }
     }).then(function(data) {
       var myTeach = data.map(e=>{return e.hobby_id})
@@ -50,24 +50,24 @@ module.exports = function(app) {
 
 
   // Create a new example
-  app.post("/api/user", function(req, res) {
+  app.post("/api/users", function(req, res) {
     db.User.create(req.body).then(function(result) {
       res.json(result);
     });
   });
 
- // Create a new example
- app.post("/api/:user/teach", function(req, res) {
+ // /api/users/:userid/skills for teach.html
+ app.post("/api/users/:userid/skills", function(req, res) {
   var arrObj = [
-    {user_id: req.params.user,
+    {user_id: req.params.userid,
      hobby_id: req.body.hobby_id1,
      Description: req.body.desc_1 
     },
-    {user_id: req.params.user,
+    {user_id: req.params.userid,
       hobby_id: req.body.hobby_id2,
       Description: req.body.desc_2 
      },
-     {user_id: req.params.user,
+     {user_id: req.params.userid,
       hobby_id: req.body.hobby_id3,
       Description: req.body.desc_3 
      }
@@ -79,18 +79,18 @@ module.exports = function(app) {
 });
 
 
- // Create a new example
- app.post("/api/:user/learn", function(req, res) {
+ // /api/users/:userid/needs triggered by learn.html
+ app.post("/api/users/:userid/needs", function(req, res) {
   var arrObj = [
-    {user_id: req.params.user,
+    {user_id: req.params.userid,
      hobby_id: req.body.hobby_id1,
      Description: req.body.desc_1 
     },
-    {user_id: req.params.user,
+    {user_id: req.params.userid,
       hobby_id: req.body.hobby_id2,
       Description: req.body.desc_2 
      },
-     {user_id: req.params.user,
+     {user_id: req.params.userid,
       hobby_id: req.body.hobby_id3,
       Description: req.body.desc_3 
      }
