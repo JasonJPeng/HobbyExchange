@@ -3,12 +3,22 @@ Skill Exchange A web application where users enter skills that they have and ski
 
 
 ## API Rout
-```
-GET   /api/hobbies  -- list all hobbies (id, name)
-GET   /api/learnFrom/:userId   --  (userId) can learn from [list of users and skills]
-GET   /api/teachTo/:userId     --  (userId) can teach [list of users] 
 
-POST  /api/users               --  create a new user
-POST  /api/:user/teach         --   Create a skill set for user (:user)
-POST  /api/:user/learn         --   Create a skill set a user (:user) wants to learn
+```
+get /api/hobbies                  -- list all hobbies   
+
+post /api/users                   -- Craete a new user 
+
+get /api/users/:userid            -- get one user's information
+
+post /api/users/:userid/skills    -- create a skill set (what he/.she can teach) for a specific user
+
+post /api/users/:userid/needs     -- create a need set (what he/she wants to learn) for a specific use
+
+get /api/users/:userid/teachto    -- match one user's needs to other users' skill sets. 
+                                     Return a list of users and their skills can for a specific user(:userid)  
+
+get /api/users/:userid/learnfrom  -- match one user's skill set to other users' needs. 
+                                     Return a list of users he/she needs to teach
+
 ```
