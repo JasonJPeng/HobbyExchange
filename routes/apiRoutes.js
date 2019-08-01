@@ -1,5 +1,48 @@
 var db = require("../models");
 
+function sortMatch(arrObj) {
+    var sortedArr = [];
+    arrObj.forEach(function(e){
+      var obj = sortedArr.find(x => {
+         if (x.user_id === e.user_id) {
+           return x;
+         }
+        })
+      if (obj === undefined ) {
+        sortedArr.push( {
+          user_id: e.user_id,
+          teach: [{
+              id: e.teach_id,
+              name: e.teach_subject,
+              desc: e.teach_info
+          }],
+          learn: [{
+              id: e.learn_id,
+              name: e.learn_subject,
+              desc: e.learn_info 
+          }]
+        })  
+      } else {
+        if (obj.teach.find(x=> x.id === e.teach_id) === undefined ) {
+          obj.teach.push({
+            id: e.teach_id,
+            name: e.teach_subject,
+            desc: e.teach_info
+          })
+       }
+       if (obj.learn.find(x=> x.id === e.learn_id) === undefined ) {
+        obj.learn.push({
+          id: e.learn_id,
+          name: e.learn_subject,
+          desc: e.learn_info 
+        })
+       }
+      }  
+    } )
+
+     return sortedArr;
+}
+
 async function findHobby(id) {
   return new Promise((resolve, reject) => {
     db.Hobby.findAll({
@@ -53,14 +96,7 @@ async function findMatch(teachTo, learnFrom) {
         if (teachTo[i].user_id === learnFrom[j].user_id) {
           temp.push(getMatchData(teachTo[i], learnFrom[j]));
         }
-      }
-      // if(i === teachTo.length -1) {
-      //   Promise.all(temp).then(data => {
-      //     // console.log(data);
-      //     resolve(data);
-            
-      //   });    
-      // }
+      }     
     }
     Promise.all(temp).then(data => {
       resolve(data);
@@ -160,6 +196,8 @@ async function createUser(req) {
   output.learnFrom = await learnFromUsers(userId);
 
   output.match = await findMatch(output.teachTo, output.learnFrom);
+
+  output.sortedMatch = sortMatch(output.match)
 
 
   return output;
