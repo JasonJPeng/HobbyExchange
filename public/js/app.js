@@ -52,16 +52,6 @@ $("#FindMatch").on("click", function (event) {
 
    function displayMatches(arrObj) {
 
-    var matches =
-    $('<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">')
-       .append($('<div class="wrapper wrapper--w790">')
-               .append($('<div class="card card-5">')
-                  .html('<div class="card-heading"><h2 class="title">My Matches</h2></div>')
-                    .append('<div class="card-body" id="body">')
-               ) 
-       )          
-
-
 
        arrObj.forEach(function(e){
        if (e.teach.length > 1) {    
@@ -79,30 +69,53 @@ $("#FindMatch").on("click", function (event) {
 
     var htmlCode = `
 
-    <div class=“card” style=“width: 18rem;“>
-        <img src=“${e.user_photo}” class=“card-img-top” alt=“...“>
-         <div class=“card-body”>
-            <h5 class=“card-title”>${e.user_name}</h5>
-            <p class=“card-text”>${e.user_about}</p>
-        </div>
-        <ul class=“list-group list-group-flush”>
-            <li class=“list-group-item”>${e.user_name} can teach ${teach} </li>
-            <li class=“list-group-item”>Learn ${learn} from ${e.user_name} </li>
-            <li class=“list-group-item”>Qulification: ${qualification}</li>
-            <li class=“list-group-item”>contact ${e.user_name} ${e.user_email}</li>
-        </ul>
-
+                      
+    <div class="form-row">
+    <div class="name">${e.user_name}</div>
+    <div class="value">
+        <div class="input-group">
+            ${e.user_about}  e-mail: ${e.user_email}
         </div>
     </div>
+</div>
+
+<div class="form-row">
+    <div class="name">${e.user_name} Teaches</div>
+    <div class="value">
+        <div class="input-group">
+            ${teach}
+        </div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="name">${e.user_name}'s Qualification</div>
+    <div class="value">
+        <div class="input-group">
+            ${qualification}
+        </div>
+    </div>
+</div>
+
+<div class="form-row">
+    <div class="name">Teach ${e.user_name}</div>
+    <div class="value">
+        <div class="input-group">
+            ${learn}
+        </div>
+    </div>
+</div>
+<hr>
+<hr>
 
     `
        
 
-        // $("#MatchedResults").append(htmlCode);
-        matches.append(htmlCode);
+        $("#MatchedResults").append(htmlCode);
+        // matches.append(htmlCode);
 
        });
-       $("#MatchedResults").append(matches);
+    //    $("#MatchedResults").append(matches);
    }
 
 
