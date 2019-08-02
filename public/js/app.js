@@ -1,5 +1,4 @@
 $(document).ready(function() { //  Beginning of jQuery
-
    $.ajax({
        type: "GET",
        url: "api/hobbies"
@@ -15,16 +14,6 @@ $(document).ready(function() { //  Beginning of jQuery
       
    })
 
-//    $.ajax({
-//     type: "GET",
-//     url: "api/hobbies"
-//     }).then(function(data) {
-//     data.forEach(function(e){
-//         htmlCode = `<li>(${e.id})  ${e.name}</li>`;
-//         $("#HobbyList").append(htmlCode)
-//     })
-//     console.log(data)
-//    })
 
 $("#FindMatch").on("click", function (event) {
     event.preventDefault();
@@ -62,6 +51,18 @@ $("#FindMatch").on("click", function (event) {
    })  // end of submit
 
    function displayMatches(arrObj) {
+
+    var matches =
+    $('<div class="page-wrapper bg-gra-03 p-t-45 p-b-50">')
+       .append($('<div class="wrapper wrapper--w790">')
+               .append($('<div class="card card-5">')
+                  .html('<div class="card-heading"><h2 class="title">My Matches</h2></div>')
+                    .append('<div class="card-body" id="body">')
+               ) 
+       )          
+
+
+
        arrObj.forEach(function(e){
        if (e.teach.length > 1) {    
          teach = e.teach.reduce( (a,b)=>a.name + ", " + b.name);
@@ -75,16 +76,33 @@ $("#FindMatch").on("click", function (event) {
           learn = e.learn[0].name;
           qualification = e.learn[0].desc
        }
-       var htmlCode = `
-          Teaching ${e.user_name} on ${teach} <br>
-          Learning ${learn} from ${e.user_name} <br>
-          qulification: ${qualification}  <br>
-          <hr>
-       `;
-        $("#MatchedResults").append(htmlCode);
+
+    var htmlCode = `
+
+    <div class=“card” style=“width: 18rem;“>
+        <img src=“${e.user_photo}” class=“card-img-top” alt=“...“>
+         <div class=“card-body”>
+            <h5 class=“card-title”>${e.user_name}</h5>
+            <p class=“card-text”>${e.user_about}</p>
+        </div>
+        <ul class=“list-group list-group-flush”>
+            <li class=“list-group-item”>${e.user_name} can teach ${teach} </li>
+            <li class=“list-group-item”>Learn ${learn} from ${e.user_name} </li>
+            <li class=“list-group-item”>Qulification: ${qualification}</li>
+            <li class=“list-group-item”>contact ${e.user_name} ${e.user_email}</li>
+        </ul>
+
+        </div>
+    </div>
+
+    `
+       
+
+        // $("#MatchedResults").append(htmlCode);
+        matches.append(htmlCode);
 
        });
-
+       $("#MatchedResults").append(matches);
    }
 
 

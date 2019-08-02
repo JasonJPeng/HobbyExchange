@@ -28,30 +28,34 @@ get /api/users/:userid/learnfrom  -- match one user's skill set to other users' 
 ```
 
 ```
-Reading books
+       Reading 
         Blogging
         Dancing
        Singing
-        Listening to music
-        Playing musical instruments (piano, guitar etc.)
-        Learning new languages
+        Listening Music
+        Playing Piano
+        Playing Guitar
+        Tennis
+        Singing
+        Basket Ball
+        Soccer
        Shopping
        Travelling
         Hiking
         Cycling
-        Exercising
+        Yoga
         Drawing
         Painting
-        Collecting things
-        Playing computer games
+    
+        Computer games
         Cooking
         Baking
         Gardening
-        Doing crafts (handmade)
+        Crafting
         Embroidering
         Sewing
         Knitting
-        Playing board games
+        Board games
         Walking
        Writing stories
         Fishing
@@ -60,6 +64,6 @@ Reading books
         Skating
         Skiing
         Roller skating
-        Longboarding
+    
         Surfing
 ```
