@@ -11,7 +11,6 @@
 
     <!-- Title Page-->
     <title>Hobby Exchange</title>
-    
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -25,7 +24,8 @@
     <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/main.css" rel="stylesheet" media="all">
+    <link href="/styles/styles.css" rel="stylesheet" media="all">
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
 </head>
@@ -82,8 +82,9 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="learn-subject-1" class="HobbyList">
-                                                <option selected="selected" value="">N/A</option>
+                                        <select name="learn-subject-1" class = "HobbyList">
+                                            <option selected="selected" value="">N/A</option>
+                                            
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -98,7 +99,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="learn-subject-2" class="HobbyList">
+                                        <select name="learn-subject-2" class = "HobbyList">
                                                 <option selected="selected" value="">N/A</option>
                                         </select>
                                         <div class="select-dropdown"></div>
@@ -112,7 +113,7 @@
                             <div class="value">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="learn-subject-3" class="HobbyList">
+                                        <select name="learn-subject-3" class = "HobbyList">
                                                 <option selected="selected" value="">N/A</option>
                                         </select>
                                         <div class="select-dropdown"></div>
@@ -128,7 +129,7 @@
                                             <div class="row row-space">
                                                 <div class="col-2">
                                                         <div class="rs-select2 js-select-simple select--no-search">
-                                                                <select name="teach-subject-1" class="HobbyList">
+                                                                <select name="teach-subject-1" class = "HobbyList">
                                                                         <option selected="selected" value="">N/A</option>
                                                                 </select>
                                                                 <div class="select-dropdown"></div>
@@ -149,9 +150,8 @@
                                                 <div class="row row-space">
                                                     <div class="col-2">
                                                             <div class="rs-select2 js-select-simple select--no-search">
-                                                                    <select name="teach-subject-2" class="HobbyList">
-                                                                        <option disabled="disabled" selected="selected">Choose option</option>
-                                                                        <option selected="selected" value="">N/A</option>
+                                                                    <select name="teach-subject-2" class = "HobbyList">
+                                                                            <option selected="selected" value="">N/A</option>
                                                                     </select>
                                                                     <div class="select-dropdown"></div>
                                                                 </div>
@@ -171,7 +171,7 @@
                                                     <div class="row row-space">
                                                         <div class="col-2">
                                                                 <div class="rs-select2 js-select-simple select--no-search">
-                                                                        <select name="teach-subject-3" class="HobbyList">
+                                                                        <select name="teach-subject-3" class = "HobbyList">
                                                                                 <option selected="selected" value="">N/A</option>
                                                                         </select>
                                                                         <div class="select-dropdown"></div>
@@ -197,59 +197,12 @@
         </div>
     </div>
 
-    <!-- <div  id = "MatchedResults"></div> -->
-<!-- ============================================================================================== -->
+  <hr>
+    <div  id = "MatchedResults">
 
-    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
-            <div class="wrapper wrapper--w790">
-                <div class="card card-5">
-                    <div class="card-heading">
-                        <h2 class="title">My Matches</h2>
-                    </div>
-                    <div class="card-body" id = "MatchedResults">
-    <!-- ========================================================================================= -->
-<!--                         
-                            <div class="form-row">
-                                <div class="name">${e.user_name}</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        ${e.user_about}  e-mail: ${e.user_email}
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="name">${e.user_name} Teaches</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        ${teach}
-                                    </div>
-                                </div>
-                            </div>
-            
-                            <div class="form-row">
-                                <div class="name">${e.user_name}'s Qualification</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        ${qualification}
-                                    </div>
-                                </div>
-                            </div>
-            
-                            <div class="form-row">
-                                <div class="name">Teach ${e.user_name}</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        ${learn}
-                                    </div>
-                                </div>
-                            </div> -->
-        <!-- ====================================================================================                     -->
-                   </div>
-                 </div>    
-            </div> 
-    </div>                 
-         
+    
+
+    </div>
 
     <!-- Jquery JS-->
     <script src="vendor/jquery/jquery.min.js"></script>

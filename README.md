@@ -7,7 +7,9 @@ Skill Exchange A web application where users enter skills that they have and ski
 ```
 get /api/hobbies                  -- list all hobbies   
 
-post /api/users                   -- Craete a new user 
+post /api/hobbies                -- create muliple hobbies
+
+post /api/users                   -- Craete a new user, learn table, teach table and pubklish match 
 
 get /api/users/:userid            -- get one user's information
 
@@ -21,4 +23,47 @@ get /api/users/:userid/teachto    -- match one user's needs to other users' skil
 get /api/users/:userid/learnfrom  -- match one user's skill set to other users' needs. 
                                      Return a list of users he/she needs to teach
 
+
+
+```
+
+```
+       Reading 
+        Blogging
+        Dancing
+       Singing
+        Listening Music
+        Playing Piano
+        Playing Guitar
+        Tennis
+        Singing
+        Basket Ball
+        Soccer
+       Shopping
+       Travelling
+        Hiking
+        Cycling
+        Yoga
+        Drawing
+        Painting
+    
+        Computer games
+        Cooking
+        Baking
+        Gardening
+        Crafting
+        Embroidering
+        Sewing
+        Knitting
+        Board games
+        Walking
+       Writing stories
+        Fishing
+        Photography
+        Skydiving
+        Skating
+        Skiing
+        Roller skating
+    
+        Surfing
 ```
