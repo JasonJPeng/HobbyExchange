@@ -12,13 +12,15 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
-      });
-    });
-  });
+
+  // Use handle Bars
+  // app.get("/api/users/:id", function(req, res) {
+  //   db.User.findOne({ where: { id: req.params.id } }).then(function(userData) {
+  //     res.render("user", {
+  //       all: userData
+  //     });
+  //   });
+  // });
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {

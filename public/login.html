@@ -1,6 +1,5 @@
 <html>
 <head>
-        <head>
                 <!-- Required meta tags-->
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,9 +31,41 @@
 
 
 <body>
- <input id="user-id"><button id="FindMatch">Find Match</button>   
 
- <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="row row-space" id="displayme">
+                <div class="col-2">
+                        <div class="input-group-desc">
+                                <label class="label--desc"> User ID</label>
+                            <input class="input--style-5" type="text" ID="username">
+    
+                        </div>
+            
+                    <div class="input-group-desc">
+                            <label class="label--desc">  Password</label>
+                        <input class="input--style-5" type="password">
+        
+                    </div>
+                </div> <p>
+                    <button class="btn btn--radius-2 btn--red" id="login">Login</button>
+                    </p>
+            </div>    
+        
+
+<div id="myinfo">
+    <!-- <img src="${data.photo_url}" height="200">
+    <p>${data.name}</p>
+    <p>$data.about_me</p>
+    <p>$data.email</p>
+
+    <div>
+            <input id="user-id">
+            <button class="btn btn--radius-2 btn--red" id="FindMatch">Find My Matches</button>
+        </div> -->
+
+</div>
+ 
+
+ <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" id="info" hidden>
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
                 <div class="card-heading">

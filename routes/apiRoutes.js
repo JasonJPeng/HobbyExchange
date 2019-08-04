@@ -77,6 +77,13 @@ module.exports = function (app) {
     res.json(data);
   })
 
+  app.get("/api/users/:id", function(req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function(userData) {
+       res.json(userData);
+    });
+  });
+
+
   app.get("/api/users/:userid/match", async function (req, res) {
 
     // find who need to teach ==== teachTo
@@ -162,7 +169,7 @@ module.exports = function (app) {
 
 function sortMatch(arrObj, id) {
 // remove self matching 
-  arrObj = arrObj.filter(x => x.user_id !== id);  
+  arrObj = arrObj.filter(x => parseInt(x.user_id) !== parseInt(id));  
 
   var sortedArr = [];
   arrObj.forEach(function(e){

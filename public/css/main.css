@@ -89,6 +89,7 @@
   width: -webkit-calc(100% - 125px);
   width: -moz-calc(100% - 125px);
   width: calc(100% - 125px);
+  padding: 15px;
 }
 
 @media (max-width: 767px) {
@@ -777,5 +778,13 @@ input {
     padding: 40px 30px;
     padding-bottom: 50px;
   }
+}
+
+img {
+  object-fit: cover;
+}
+
+#myinfo, #displayme {
+  margin: 20px;
 }
 
