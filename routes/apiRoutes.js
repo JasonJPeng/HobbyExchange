@@ -169,7 +169,7 @@ module.exports = function (app) {
 
 function sortMatch(arrObj, id) {
 // remove self matching 
-  arrObj = arrObj.filter(x => x.user_id !== id);  
+  arrObj = arrObj.filter(x => parseInt(x.user_id) !== parseInt(id));  
 
   var sortedArr = [];
   arrObj.forEach(function(e){

@@ -35,7 +35,7 @@ get /api/users/:userid/learnfrom  -- match one user's skill set to other users' 
         Tennis
         Basket Ball
         Soccer
-        Hiking
+        Ping Pong
         Cycling
         Yoga
         Drawing
@@ -43,7 +43,6 @@ get /api/users/:userid/learnfrom  -- match one user's skill set to other users' 
         Cooking
         Baking
         Gardening
-        Crafting
         Embroidering
         Sewing
         Knitting
