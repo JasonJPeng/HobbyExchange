@@ -784,7 +784,12 @@ img {
   object-fit: cover;
 }
 
-#myinfo, #displayme {
+/* #myinfo{
   margin: 20px;
+} */
+
+#displayme, #myinfo {
+  width:400px;
+  margin:auto
 }
 
