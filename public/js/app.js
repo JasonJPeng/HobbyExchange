@@ -1,4 +1,7 @@
+var myId = "";
+
 $(document).ready(function() { //  Beginning of jQuery
+    // alert("hhh");
    $.ajax({
        type: "GET",
        url: "api/hobbies"
@@ -13,11 +16,26 @@ $(document).ready(function() { //  Beginning of jQuery
        })
       
    })
-
-
-$("#FindMatch").on("click", function (event) {
+   $("#login").on("click", function (event) {
     event.preventDefault();
-    var id = $("#user-id").val().trim();
+     myId = $("#username").val().trim();
+
+     $("#displayme").hide();
+    $.get("api/users/" + myId).then(function(data){
+        showUserInfo(data);
+    })
+
+   }) 
+
+$(document).on("click", "#FindMatch", function (event) {
+    event.preventDefault();
+    if (myId === "") {
+     id = $("#user-id").val().trim();
+    } else {
+       id = myId; 
+    }
+    $("#info").show();
+    $("#myinfo").hide();
     $("#MatchedResults").text("");
     $.get("api/users/" + id + "/match").then(function(data){
         displayMatches(data);
@@ -45,10 +63,12 @@ $("#FindMatch").on("click", function (event) {
       console.log(user);
       $.post("/api/users", user).then(function (data) {
           displayMatches(data.sortedMatch);
+          alert("Keep your ID <"+  data.user.id + "> for future match. ");
         console.log(data);
       })    
         
    })  // end of submit
+})  
 
    function displayMatches(arrObj) {
 
@@ -71,42 +91,52 @@ $("#FindMatch").on("click", function (event) {
 
                       
     <div class="form-row">
-    <div class="name">${e.user_name}</div>
-    <div class="value">
-        <div class="input-group">
-            ${e.user_about}  e-mail: ${e.user_email}
+            <div class="name">${e.user_name}</div>
+            <div class="value">
+                <div class="input-group">
+                <img src="${e.user_photo}" height="200">
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    <div class="form-row">
+            <div class="name">Contact ${e.user_name}</div>
+            <div class="value">
+                <div class="input-group">
+                    ${e.user_about} <br> e-mail: ${e.user_email}
+                </div>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="name">Teach ${e.user_name}</div>
+            <div class="value">
+                <div class="input-group">
+                    ${teach}
+                </div>
+            </div>
+        </div>
 
-<div class="form-row">
-    <div class="name">${e.user_name} Teaches</div>
-    <div class="value">
-        <div class="input-group">
-            ${teach}
+        <div class="form-row">
+            <div class="name">${e.user_name} can teach</div>
+            <div class="value"> 
+                <div class="input-group">
+                    ${learn}
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="form-row">
-    <div class="name">${e.user_name}'s Qualification</div>
-    <div class="value">
-        <div class="input-group">
-            ${qualification}
+        
+        <div class="form-row">
+            <div class="name">${e.user_name}'s Qualification</div>
+            <div class="value">
+                <div class="input-group">
+                    ${qualification}
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-<div class="form-row">
-    <div class="name">Teach ${e.user_name}</div>
-    <div class="value">
-        <div class="input-group">
-            ${learn}
-        </div>
-    </div>
-</div>
-<hr>
-<hr>
+        
+        
+        <hr>
+        <hr>
 
     `
        
@@ -118,5 +148,24 @@ $("#FindMatch").on("click", function (event) {
     //    $("#MatchedResults").append(matches);
    }
 
+   function showUserInfo(data){
 
-})
+    var htmlCode = `
+    <img src="${data.photo_url}" height="200">
+    <p>${data.name}</p>
+    <p>${data.about_me}</p>
+    <p>${data.email}</p>
+
+    <div>
+            <input id="user-id">
+            <button class="btn btn--radius-2 btn--red" id="FindMatch">Find My Matches</button>
+        </div>
+    
+    
+    `
+    $("#myinfo").append(htmlCode);
+      
+       console.log(data);
+   }
+
+

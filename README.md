@@ -28,26 +28,18 @@ get /api/users/:userid/learnfrom  -- match one user's skill set to other users' 
 ```
 
 ```
-       Reading 
-        Blogging
         Dancing
        Singing
-        Listening Music
-        Playing Piano
-        Playing Guitar
+        Piano
+        Guitar
         Tennis
-        Singing
         Basket Ball
         Soccer
-       Shopping
-       Travelling
         Hiking
         Cycling
         Yoga
         Drawing
         Painting
-    
-        Computer games
         Cooking
         Baking
         Gardening
@@ -55,15 +47,11 @@ get /api/users/:userid/learnfrom  -- match one user's skill set to other users' 
         Embroidering
         Sewing
         Knitting
-        Board games
-        Walking
-       Writing stories
         Fishing
-        Photography
-        Skydiving
-        Skating
+        Photograph
+        Running
         Skiing
         Roller skating
-    
         Surfing
+        Swimming
 ```

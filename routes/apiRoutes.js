@@ -77,6 +77,13 @@ module.exports = function (app) {
     res.json(data);
   })
 
+  app.get("/api/users/:id", function(req, res) {
+    db.User.findOne({ where: { id: req.params.id } }).then(function(userData) {
+       res.json(userData);
+    });
+  });
+
+
   app.get("/api/users/:userid/match", async function (req, res) {
 
     // find who need to teach ==== teachTo
