@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    res.sendFile(index.html)
+    res.sendFile(path.join(__dirname , "..",  "public", "index.html"));
     // db.Example.findAll({}).then(function(dbExamples) {
     //   res.render("index", {
     //     msg: "Welcome!",
