@@ -79,6 +79,7 @@ $(document).on("click", "#FindMatch", function (event) {
     }
     $("#info").show();
     $("#myinfo").hide();
+    $("#skillset").hide();
     $("#MatchedResults").text("");
     $.get("api/users/" + id + "/match").then(function(data){
         displayMatches(data);
@@ -133,7 +134,7 @@ $(document).on("click", "#FindMatch", function (event) {
           qualification = e.learn[0].desc
        }
 
-    var htmlCode = ` $("#MatchedResults")
+    var htmlCode = `
 
                       
     <div class="form-row">
