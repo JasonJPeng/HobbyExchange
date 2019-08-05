@@ -16,6 +16,27 @@ $(document).ready(function() { //  Beginning of jQuery
        })
       
    })
+  
+   $.ajax({
+     type: "GET",
+     url: "api/users"
+   }).then(function(data) {
+
+    var numDisplay = Math.min(20, data.length)
+
+        shuffle(data);
+       for(var i=0; i<numDisplay; i++) {
+           var htmlCode = `
+              <img src="${data[i].photo_url}" height="75">
+           `;
+           $("#groupImg").append(htmlCode);
+       }
+
+       console.log(data);
+   })    
+   
+
+
    $("#login").on("click", function (event) {
     event.preventDefault();
      myId = $("#username").val().trim();
@@ -69,7 +90,7 @@ $(document).on("click", "#FindMatch", function (event) {
         
    })  // end of submit
 })  
-
+// ==============================================================
    function displayMatches(arrObj) {
 
 
@@ -168,4 +189,11 @@ $(document).on("click", "#FindMatch", function (event) {
        console.log(data);
    }
 
+
+   function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+      [array[i], array[j]] = [array[j], array[i]]; // swap elements
+    }
+  }
 
