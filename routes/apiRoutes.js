@@ -77,6 +77,12 @@ module.exports = function (app) {
     res.json(data);
   })
 
+  app.get("/api/users", function(req,res){
+    db.User.findAll({}).then(function(userData){
+      res.json(userData);
+    })
+  })
+
   app.get("/api/users/:id", function(req, res) {
     db.User.findOne({ where: { id: req.params.id } }).then(function(userData) {
        res.json(userData);
