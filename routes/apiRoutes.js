@@ -10,6 +10,8 @@ module.exports = function (app) {
       res.json(dbExamples);
     });
   });
+ 
+
 
   app.post("/api/hobbies", function (req, res) {
     var arrHobbies = req.body.hobbies.split("\n");   
@@ -30,7 +32,25 @@ module.exports = function (app) {
     // });
   });
 
-  app.get("/api/users/:userid/skills", function (req, res) {
+  app.get("/api/users/:userid/needs", function (req, res) {
+    db.Learn.findAll({
+      where: {
+        user_id: req.params.userid
+      }
+    }).then(function (data) {
+      res.json(data);
+    })
+  })  
+    app.get("/api/users/:userid/skills", function (req, res) {
+      db.Teach.findAll({
+        where: {
+          user_id: req.params.userid
+        }
+      }).then(function (data) {
+        res.json(data);
+      })
+    })
+  app.get("/api/users/:userid/learnFrom", function (req, res) {
     db.Learn.findAll({
       where: {
         user_id: req.params.userid
@@ -79,7 +99,7 @@ module.exports = function (app) {
 
   app.get("/api/users", function(req,res){
     db.User.findAll({}).then(function(userData){
-      res.json(userData);
+      res.json(userData)
     })
   })
 

@@ -1,4 +1,5 @@
 var myId = "";
+var hobbies = [2,3,4];
 
 $(document).ready(function() { //  Beginning of jQuery
     // alert("hhh");
@@ -6,6 +7,7 @@ $(document).ready(function() { //  Beginning of jQuery
        type: "GET",
        url: "api/hobbies"
    }).then(function(data) {
+       hobbies = data;
        data.forEach(function(e){
            opt = `<option value="${e.id}" >${e.name}</option>`;
            $(".HobbyList").append(opt);
@@ -44,6 +46,26 @@ $(document).ready(function() { //  Beginning of jQuery
      $("#displayme").hide();
     $.get("api/users/" + myId).then(function(data){
         showUserInfo(data);
+    })
+
+    $.get("api/users/" + myId + "/skills").then(function(teachData){
+        var out = teachData.map(x=> hobbies.find(a=> a.id === x.hobby_id).name);
+        var hobbyList = $("<ul>");
+        out.forEach(function(e){
+            hobbyList.append($("<li>").html(e));
+        })
+        $("#teach").html("I can teach").append(hobbyList);
+        console.log("teach=====>  ", out);
+    })
+    $.get("api/users/" + myId + "/needs").then(function(learnData){
+        var out = learnData.map(x=> hobbies.find(a=> a.id === x.hobby_id).name)
+        var hobbyList = $("<ul>");
+        out.forEach(function(e){
+            hobbyList.append($("<li>").html(e));
+        })
+        $("#learn").html("I want to learn").append(hobbyList);
+        
+        console.log("Learn =====> ", out);
     })
 
    }) 
@@ -92,7 +114,10 @@ $(document).on("click", "#FindMatch", function (event) {
 })  
 // ==============================================================
    function displayMatches(arrObj) {
-
+       if (arrObj.length === 0) {// no matches
+        $("#MatchedResults").html("<h2>No Matches</h2>");
+           return;
+       }
 
        arrObj.forEach(function(e){
        if (e.teach.length > 1) {    
@@ -108,7 +133,7 @@ $(document).on("click", "#FindMatch", function (event) {
           qualification = e.learn[0].desc
        }
 
-    var htmlCode = `
+    var htmlCode = ` $("#MatchedResults")
 
                       
     <div class="form-row">
