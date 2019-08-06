@@ -2,7 +2,7 @@
 ## Teach, Learn, Make Friends.
 
 Try on the Heroku implementation 
-<a href="https://arcane-brook-35810.herokuapp.com/"> https://arcane-brook-35810.herokuapp.com/</a>
+<a href="https://arcane-brook-35810.herokuapp.com/" target="_blank"> https://arcane-brook-35810.herokuapp.com/</a>
 
 Hobby Exchange is a web application where users enter skills that they have and skills that they want to learn.  For example, if user 1 wants to learn guitar and is good at surfing, he or she can be matched to user 2 who can teach guitar and wants to learn surfing.    Each user will list several skills that they have and several skills that they want to learn.   Then when there is a match, the user will will be notified and will be able to contact their teacher/ student to meet up and exchange skills.
 
@@ -50,5 +50,5 @@ get /api/users/:userid/learnfrom  -- match one user's skill set to other users' 
 ```
 
 
-<a href="https://arcane-brook-35810.herokuapp.com/"> Test The Program </a>
+<a href="https://arcane-brook-35810.herokuapp.com/" target="_blank"> Test The Program </a>
 
